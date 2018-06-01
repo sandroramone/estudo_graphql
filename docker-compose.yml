@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    mysql:
+        image: mariadb:10.3
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./data/:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=12345
+            - MYSQL_DATABASE=graphql
+            - MYSQL_USER=graphql_user
+            - MYSQL_PASSWORD=12345
+    back:
+        command: bash -c "npm i && npm run dev"
+        build: .
+        volumes:
+            - .:/usr/src/app
+        ports:
+            - "3000:3000"
+        environment:
+            - DB_HOST=mysql
+        depends_on:
+            - mysql
+
