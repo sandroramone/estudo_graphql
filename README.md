@@ -8,9 +8,9 @@ $ gulp
 em outra janela de comandos usar
 
 ```
-docker-compose up
+$ docker-compose up
 ```
 
 esse ultimo comando irá iniciar o container do banco de dados
 e o container com o node, rodando o nodemon pra trabalhar
-em desenvolvimento
+em desenvolvimento, para acessar basta acessar no navegador localhost:3000/graphql
